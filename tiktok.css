@@ -100,3 +100,232 @@ header {
     cursor: pointer; 
     padding-right: 0px;
 }
+
+.sobrefooter{
+    padding-left: 10px;
+    color: white;
+    position: fixed; 
+    top: 80%; 
+    padding-right: 10px;
+}
+.sobrefooter h1{
+    font-size: larger;
+}
+.sobrefooter h2{
+    font-size: large;
+    padding-right: 120px;
+}
+.sobrefooter h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.sobrefooter h3 img {
+    width: 40px;
+    height: auto;
+    animation: spin 5s linear infinite;
+}
+
+.sobrefooter span{
+    color:rgb(77, 133, 255);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    z-index: 100;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around; /* Distributes icons evenly */
+    align-items: center;
+    height: 60px;
+    color: white;
+}
+footer img{
+    color: aliceblue;
+}
+.footer-item {
+    display: flex;
+    flex-direction: column; /* Stacks Icon and Text vertically */
+    align-items: center;    /* Centers them horizontally */
+    color: white;           /* Sets color for both icon and text */
+    cursor: pointer;
+}
+
+.footer-item span {
+    font-size: 24px;        /* Adjust icon size */
+}
+
+.footer-item p {
+    font-size: 10px;        /* Small text like typical apps */
+    margin-top: 2px;        /* Small gap between icon and text */
+    font-weight: 500;
+}
+.footer-svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+.tiktok-add-button {
+    position: relative;
+    width: 40px;
+    height: 30px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px; 
+}
+.tiktok-add-button::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    width: 100%;
+    height: 100%;
+    background-color: #01f7f7;
+    border-radius: 8px;
+    z-index: -1;
+}
+.tiktok-add-button::after {
+    content: "";
+    position: absolute;
+    right: -4px; 
+    width: 100%;
+    height: 100%;
+    background-color: #fd2c55;
+    border-radius: 8px;
+    z-index: -1; 
+}
+.button-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Update the icon style to remove default spacing */
+.button-content .material-icons {
+    color: black !important;
+    font-size: 24px;   /* Slightly smaller to fit better */
+    font-weight: 900;
+    line-height: 1;    /* Removes extra space above/below the symbol */
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+@media (min-width: 900px) {
+    /* 1. Change Footer to a Sidebar */
+    footer{
+        top: 60px; /* Start below the header */
+        bottom: auto;
+        left: 0;
+        width: 240px; /* Wider for desktop labels */
+        height: calc(100vh - 60px);
+        flex-direction: column; /* Stack items vertically */
+        justify-content: flex-start;
+        padding-top: 20px;
+        background-color: transparent; /* Cleaner look */
+        gap: 20px;
+    }
+
+    .footer-item {
+        flex-direction: row; /* Icon next to text */
+        width: 100%;
+        padding: 10px 20px;
+        justify-content: flex-start;
+        gap: 15px;
+    }
+
+    .footer-item p {
+        font-size: 18px; /* Bigger text for desktop */
+        font-weight: bold;
+    }
+
+    .footer-item span, .footer-svg {
+        width: 30px;
+        height: 30px;
+        font-size: 30px;
+    }
+
+    /* 2. Style the Video Container */
+    #background-video {
+        position: relative;
+        width: 450px; /* Standard vertical video width on desktop */
+        min-width: 450px;
+        height: 85vh;
+        margin: 80px auto; /* Centers the video */
+        border-radius: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* 3. Move the Side Icons (Like/Comment) next to the video */
+    .iconsside {
+        right: calc(50% - 290px); /* Positions icons just to the right of the video */
+        top: 60%;
+    }
+
+    /* 4. Reposition the user info (sobrefooter) */
+    .sobrefooter {
+        left: calc(50% - 225px); /* Aligns with the left edge of the video */
+        bottom: 120px;
+        top: auto;
+        width: 400px;
+        pointer-events: none; /* Allows clicks to pass through to the video */
+    }
+
+    /* 5. Hide the "+" button from the sidebar (optional, as it's usually in the header on desktop) */
+    .tiktok-add-button {
+        display: none; 
+    }
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* Style the Desktop Upload button */
+    .desktop-upload {
+        display: flex;
+        align-items: center;
+        background-color: white; /* Contrast: White button on dark background */
+        color: black;
+        padding: 6px 16px;
+        border-radius: 2px;
+        font-weight: bold;
+        cursor: pointer;
+        gap: 5px;
+    }
+
+    .desktop-upload span {
+        font-size: 20px;
+    }
+
+    /* Hide the mobile search icon if needed, or adjust spacing */
+    #search {
+        font-size: 28px;
+    }
+}
+
+/* Ensure the desktop upload is HIDDEN on mobile */
+@media (max-width: 899px) {
+    .desktop-upload {
+        display: none;
+    }
+}
